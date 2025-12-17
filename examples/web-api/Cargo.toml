@@ -1,0 +1,50 @@
+[package]
+name = "web-api-example"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[[bin]]
+name = "web-api"
+path = "src/main.rs"
+
+[dependencies]
+# Use the parent template as a library
+# In a real project, replace with your crate name
+# {{project-name}} = { path = "../.." }
+
+# Async runtime
+tokio = { version = "1.48", features = ["full"] }
+
+# Web framework
+axum = "0.8"
+tower = "0.5"
+tower-http = { version = "0.6", features = ["cors", "trace"] }
+
+# Database
+sqlx = { version = "0.8", features = ["runtime-tokio", "postgres", "uuid", "chrono"] }
+
+# Error handling
+thiserror = "2.0"
+anyhow = "1.0"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Utilities
+uuid = { version = "1.18", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+
+# Logging/Tracing
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Configuration
+config = "0.14"
+
+# Async trait support
+async-trait = "0.1"
+
+[dev-dependencies]
+reqwest = { version = "0.12", features = ["json"] }

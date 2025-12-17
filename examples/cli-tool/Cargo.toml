@@ -1,0 +1,38 @@
+[package]
+name = "cli-tool-example"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[[bin]]
+name = "cli-tool"
+path = "src/main.rs"
+
+[dependencies]
+# Use the parent template as a library
+# In a real project, replace with your crate name
+# {{project-name}} = { path = "../.." }
+
+# Async runtime
+tokio = { version = "1.48", features = ["full"] }
+
+# CLI parsing
+clap = { version = "4.5", features = ["derive"] }
+
+# Error handling
+thiserror = "2.0"
+anyhow = "1.0"
+
+# Serialization (for file-based storage)
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Utilities
+uuid = { version = "1.18", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+
+# Async trait support
+async-trait = "0.1"
+
+# Pretty terminal output
+colored = "2"

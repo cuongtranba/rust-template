@@ -1,0 +1,62 @@
+[package]
+# cargo-generate will replace this with your project name
+# Template placeholder: {{project-name}}
+name = "rust_hexagonal_template"
+version = "0.1.0"
+edition = "2021"
+# Template placeholder: {{author}}
+authors = []
+# Template placeholder: {{description}}
+description = "A Rust project using hexagonal architecture"
+license = "MIT"
+repository = ""
+readme = "README.md"
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+# cargo-generate will replace this with your project name
+# Template placeholder: {{project-name}}
+name = "rust_hexagonal_template"
+path = "src/main.rs"
+
+[dependencies]
+# Async runtime
+tokio = { version = "1.48", features = ["full"] }
+
+# Error handling
+thiserror = "2.0"
+anyhow = "1.0"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Utilities
+uuid = { version = "1.18", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+
+# Logging/Tracing
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Configuration
+config = "0.14"
+
+# Async trait support
+async-trait = "0.1"
+
+[dev-dependencies]
+# Testing
+mockall = "0.13"
+tokio-test = "0.4"
+
+[features]
+default = []
+test-mocks = []
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"

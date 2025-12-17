@@ -1,0 +1,42 @@
+[template]
+cargo_generate_version = ">=0.18.0"
+ignore = [
+    ".git",
+    "target",
+    "Cargo.lock",
+]
+
+[placeholders.project-name]
+type = "string"
+prompt = "Project name?"
+regex = "^[a-z][a-z0-9_-]*$"
+
+[placeholders.description]
+type = "string"
+prompt = "Project description?"
+default = "A Rust project using hexagonal architecture"
+
+[placeholders.author]
+type = "string"
+prompt = "Author name?"
+default = ""
+
+[placeholders.with_web_example]
+type = "bool"
+prompt = "Include web API example?"
+default = true
+
+[placeholders.with_cli_example]
+type = "bool"
+prompt = "Include CLI tool example?"
+default = true
+
+[conditional.'!with_web_example']
+ignore = ["examples/web-api"]
+
+[conditional.'!with_cli_example']
+ignore = ["examples/cli-tool"]
+
+# Hooks can be used to run commands after generation
+# [hooks]
+# post = ["cargo fmt"]

@@ -1,0 +1,19 @@
+# Rustfmt configuration
+# https://rust-lang.github.io/rustfmt/
+
+# Edition
+edition = "2021"
+
+# Maximum width of each line
+max_width = 100
+
+# Use tabs or spaces
+hard_tabs = false
+tab_spaces = 4
+
+# Imports (stable options only)
+reorder_imports = true
+
+# Misc
+use_small_heuristics = "Default"
+newline_style = "Auto"
