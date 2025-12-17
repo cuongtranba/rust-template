@@ -52,7 +52,11 @@ async fn create_user(repo: &FileUserRepository, email: &str, name: &str) -> Resu
 
     // Check for existing user
     if repo.find_by_email(&email).await?.is_some() {
-        eprintln!("{} User with email {} already exists", "Error:".red(), email);
+        eprintln!(
+            "{} User with email {} already exists",
+            "Error:".red(),
+            email
+        );
         std::process::exit(1);
     }
 
