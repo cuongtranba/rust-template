@@ -89,9 +89,9 @@ jobs:
         env:
           RUSTDOCFLAGS: -D warnings
 
-  # Optional: Build examples
-  examples:
-    name: Build Examples
+  # Build binaries
+  binaries:
+    name: Build Binaries
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -102,16 +102,16 @@ jobs:
       - name: Cache cargo registry
         uses: Swatinem/rust-cache@v2
 
-      - name: Build web-api example
-        run: cargo build --manifest-path examples/web-api/Cargo.toml
+      - name: Build web-api binary
+        run: cargo build --bin web-api --features web-api
 
-      - name: Build cli-tool example
-        run: cargo build --manifest-path examples/cli-tool/Cargo.toml
+      - name: Build cli-tool binary
+        run: cargo build --bin cli-tool --features cli-tool
 
   # Summary job that depends on all others
   ci-success:
     name: CI Success
-    needs: [check, fmt, clippy, test, docs, examples]
+    needs: [check, fmt, clippy, test, docs, binaries]
     runs-on: ubuntu-latest
     if: always()
     steps:
@@ -122,7 +122,7 @@ jobs:
              [[ "${{ needs.clippy.result }}" != "success" ]] || \
              [[ "${{ needs.test.result }}" != "success" ]] || \
              [[ "${{ needs.docs.result }}" != "success" ]] || \
-             [[ "${{ needs.examples.result }}" != "success" ]]; then
+             [[ "${{ needs.binaries.result }}" != "success" ]]; then
             echo "One or more jobs failed"
             exit 1
           fi
