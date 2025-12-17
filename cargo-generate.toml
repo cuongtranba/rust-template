@@ -6,11 +6,6 @@ ignore = [
     "Cargo.lock",
 ]
 
-[placeholders.project-name]
-type = "string"
-prompt = "Project name?"
-regex = "^[a-z][a-z0-9_-]*$"
-
 [placeholders.description]
 type = "string"
 prompt = "Project description?"
