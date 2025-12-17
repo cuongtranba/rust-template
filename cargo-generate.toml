@@ -4,6 +4,7 @@ ignore = [
     ".git",
     "target",
     "Cargo.lock",
+    "docs",
 ]
 
 [placeholders.description]
@@ -16,21 +17,21 @@ type = "string"
 prompt = "Author name?"
 default = ""
 
-[placeholders.with_web_example]
+[placeholders.with_web_api]
 type = "bool"
-prompt = "Include web API example?"
+prompt = "Include web API binary?"
 default = true
 
-[placeholders.with_cli_example]
+[placeholders.with_cli_tool]
 type = "bool"
-prompt = "Include CLI tool example?"
+prompt = "Include CLI tool binary?"
 default = true
 
-[conditional.'!with_web_example']
-ignore = ["examples/web-api"]
+[conditional.'!with_web_api']
+ignore = ["src/bin/web_api"]
 
-[conditional.'!with_cli_example']
-ignore = ["examples/cli-tool"]
+[conditional.'!with_cli_tool']
+ignore = ["src/bin/cli_tool"]
 
 # Hooks can be used to run commands after generation
 # [hooks]

@@ -10,7 +10,7 @@ use axum::{
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
-use crate::app_state::{AppState, DomainError, Email, User, UserId, UserRepository};
+use crate::app_state::{AppState, DomainError, Email, User, UserId};
 use crate::error::AppError;
 
 // =============================================================================

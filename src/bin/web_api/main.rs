@@ -1,12 +1,11 @@
-//! Web API Example
+//! Web API Binary
 //!
-//! A complete REST API example using axum with hexagonal architecture.
+//! A complete REST API using axum with hexagonal architecture.
 //!
 //! ## Running
 //!
 //! ```bash
-//! cd examples/web-api
-//! cargo run
+//! cargo run --bin web-api
 //! ```
 //!
 //! ## Endpoints

@@ -1,4 +1,4 @@
-//! Domain types for CLI example
+//! Domain types for CLI tool
 //!
 //! These are simplified versions from the main crate.
 
@@ -47,6 +47,7 @@ impl Email {
         Ok(Self(value.to_lowercase()))
     }
 
+    #[allow(dead_code)]
     pub fn as_str(&self) -> &str {
         &self.0
     }

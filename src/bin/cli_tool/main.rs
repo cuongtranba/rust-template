@@ -1,14 +1,13 @@
-//! CLI Tool Example
+//! CLI Tool Binary
 //!
 //! A command-line interface demonstrating hexagonal architecture with clap.
 //!
 //! ## Running
 //!
 //! ```bash
-//! cd examples/cli-tool
-//! cargo run -- --help
-//! cargo run -- create-user --email user@example.com --name "John Doe"
-//! cargo run -- list-users
+//! cargo run --bin cli-tool -- --help
+//! cargo run --bin cli-tool -- create-user --email user@example.com --name "John Doe"
+//! cargo run --bin cli-tool -- list-users
 //! ```
 
 mod cli;
