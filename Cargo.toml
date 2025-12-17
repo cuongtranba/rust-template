@@ -16,12 +16,6 @@ readme = "README.md"
 path = "src/lib.rs"
 
 [[bin]]
-# cargo-generate will replace this with your project name
-# Template placeholder: {{project-name}}
-name = "rust_hexagonal_template"
-path = "src/main.rs"
-
-[[bin]]
 name = "web-api"
 path = "src/bin/web_api/main.rs"
 required-features = ["web-api"]
