@@ -16,7 +16,7 @@ pub struct UserId(pub Uuid);
 impl UserId {
     /// Create a new random user ID
     pub fn new() -> Self {
-        Self(Uuid::new_v4())
+        Self(Uuid::now_v7())
     }
 
     /// Create from an existing UUID
